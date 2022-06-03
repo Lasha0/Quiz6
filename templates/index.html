@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block title %} {{ super() }} | Home {% endblock %}
+
+{% block content %}
+
+    <div class="container" style="padding-top: 20px;">
+        <div class="row">
+
+            {% for each in inventory %}
+
+                <div class="col" style="margin-bottom: 20px">
+                    <div class="card" style="width: 18rem;">
+                        <img src="{{ each['image_url'] }}"
+                             class="card-img-top" alt="item" style="max-height: 190px;">
+                        <div class="card-body">
+                            <h5 class="card-title">{{ each['name'] }}</h5>
+                            <p class="card-text">{{ each['price'] }}$</p>
+
+                            <button class="btn btn-primary"
+                                    onclick="window.location='{{ url_for('update_item', item_id=each['id']) }}';">Edit
+                            </button>
+                            <button class="btn btn-danger"
+                                    onclick="window.location='{{ url_for('delete_item', item_id=each['id']) }}';">Delete
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+            {% endfor %}
+
+        </div>
+    </div>
+
+{% endblock %}

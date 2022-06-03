@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block title %} {{ super() }} | Add Inventory {% endblock %}
+
+{% block content %}
+
+    <div class="container" style="padding-top: 20px;">
+        <form method="POST" style="max-width: 600px;">
+            <fieldset>
+                <legend>Add New Inventory</legend>
+                <div class="mb-3">
+                    <label for="name" class="form-label">Name</label>
+                    <input name="name" class="form-control" type="text" placeholder="Enter Name"
+                           aria-label="default input example" id="name">
+                </div>
+                <div class="mb-3">
+                    <label for="price" class="form-label">Price</label>
+                    <input name="price" class="form-control" type="text" placeholder="Enter Price"
+                           aria-label="default input example" id="price">
+                </div>
+                <div class="mb-3">
+                    <label for="url" class="form-label">Image Url</label>
+                    <input name="url" class="form-control" type="text" placeholder="Enter Image URL"
+                           aria-label="default input example" id="url">
+                </div>
+                <button type="submit" class="btn btn-primary">Add</button>
+            </fieldset>
+        </form>
+    </div>
+
+{% endblock %}
